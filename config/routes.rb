@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   namespace :api do
     resources :users, only: [:create, :index, :show]
     patch '/image/:id', to: 'users#update'

@@ -8,6 +8,7 @@ class Api::UsersController < ApplicationController
     end
 
     def show
+      # byebug
         @user = User.find_by(id: params[:id])
         image = rails_blob_path(@user.image)
 
