@@ -14,26 +14,14 @@ class PostsController < ApplicationController
     render json: @post
   end
 
-  # # POST /posts
-  # def create
-  #   byebug
-  #   new_post = Post.new(:post_image)
-  #   user = User.find(params[:user_id])
-  #   new_post.user = user
-
-  #   if new_post.save
-  #     render json: new_post, status: :created
-  #   else
-  #     render json: new_post.errors, status: :unprocessable_entity
-  #   end
-  # end
+  
 
   def create
     # byebug
     @post = Post.new(user_id: params[:user_id])
     @post.post_image.attach(params[:post_image])
     @post.save
-    # render json: @post
+    render json: @post
   end
 
   # PATCH/PUT /posts/1
