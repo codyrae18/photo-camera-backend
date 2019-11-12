@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: @posts.reverse
   end
 
   # GET /posts/1
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 
   def create
     # byebug
-    @post = Post.new(user_id: params[:user_id])
+    @post = Post.new(user_id: params[:user_id], category_id: params[:category_id])
     @post.post_image.attach(params[:post_image])
     @post.save
     render json: @post
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:user_id, :post_image)
+      params.require(:post).permit(:user_id, :post_image, :category_id)
     end
 end
