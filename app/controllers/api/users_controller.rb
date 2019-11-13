@@ -10,7 +10,7 @@ class Api::UsersController < ApplicationController
     def show
       # byebug
         @user = User.find_by(id: params[:id])
-        image = rails_blob_path(@user.image)
+        # image = rails_blob_path(@user.image)
 
         if @user.password == params[:password]
           render json: @user
@@ -36,7 +36,7 @@ class Api::UsersController < ApplicationController
     def update
       # byebug
       @user = User.find(params[:id])
-      @user.image.attach(params[:image])
+      # @user.image.attach(params[:image])
       render json: @user.as_json, status: 200
     end
 
