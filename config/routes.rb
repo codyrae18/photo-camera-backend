@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cameras
   resources :categories
   resources :posts
   namespace :api do

@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   
 
   def create
-    byebug
+    # byebug
     @post = Post.new(title: params[:title] ,user_id: params[:user_id], category_id: params[:category_id])
     @post.post_image.attach(params[:post_image])
     @post.save
